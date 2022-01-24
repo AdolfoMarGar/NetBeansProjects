@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-dic-2021 2:23:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelos.FacturasTot" table="FACTURAS_TOT" schema="AD_TEMA_03_FACTURAS" optimistic-lock="version">
+        <id name="numfac" type="long">
+            <column name="NUMFAC" precision="10" scale="0" />
+            <generator class="foreign">
+                <param name="property">facturasCab</param>
+            </generator>
+        </id>
+        <one-to-one name="facturasCab" class="Modelos.FacturasCab"  ></one-to-one>
+        <property name="baseimp" type="big_decimal">
+            <column name="BASEIMP" precision="12" />
+        </property>
+        <property name="impDto" type="big_decimal">
+            <column name="IMP_DTO" precision="12" />
+        </property>
+        <property name="impIva" type="big_decimal">
+            <column name="IMP_IVA" precision="12" />
+        </property>
+        <property name="totalfac" type="big_decimal">
+            <column name="TOTALFAC" precision="12" />
+        </property>
+    </class>
+</hibernate-mapping>
+<!-- Dentro de one to one iba constrained="true" -->
+<!-- Dentro de one to one iba cascade="all" -->
+

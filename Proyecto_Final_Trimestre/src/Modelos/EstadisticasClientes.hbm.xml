@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-dic-2021 2:23:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelos.EstadisticasClientes" table="ESTADISTICAS_CLIENTES" schema="AD_TEMA_03_FACTURAS" optimistic-lock="version">
+        <composite-id name="id" class="Modelos.EstadisticasClientesId">
+            <key-property name="anio" type="long">
+                <column name="ANIO" precision="10" scale="0" />
+            </key-property>
+            <key-property name="mesNum" type="long">
+                <column name="MES_NUM" precision="10" scale="0" />
+            </key-property>
+            <key-property name="dnicif" type="string">
+                <column name="DNICIF" length="13" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="clientes" class="Modelos.Clientes" update="false" insert="false" fetch="select">
+            <column name="DNICIF" length="13" not-null="true" />
+        </many-to-one>
+        <property name="mesNom" type="string">
+            <column name="MES_NOM" length="13" not-null="true" />
+        </property>
+        <property name="nombrecli" type="string">
+            <column name="NOMBRECLI" length="100" not-null="true" />
+        </property>
+        <property name="sumaBase" type="big_decimal">
+            <column name="SUMA_BASE" precision="12" />
+        </property>
+        <property name="sumaDtos" type="big_decimal">
+            <column name="SUMA_DTOS" precision="12" />
+        </property>
+        <property name="sumaIva" type="big_decimal">
+            <column name="SUMA_IVA" precision="12" />
+        </property>
+        <property name="sumaTotales" type="big_decimal">
+            <column name="SUMA_TOTALES" precision="12" />
+        </property>
+    </class>
+</hibernate-mapping>

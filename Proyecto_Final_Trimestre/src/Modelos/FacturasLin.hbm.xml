@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-dic-2021 2:23:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelos.FacturasLin" table="FACTURAS_LIN" schema="AD_TEMA_03_FACTURAS" optimistic-lock="version">
+        <composite-id name="id" class="Modelos.FacturasLinId">
+            <key-property name="numfac" type="long">
+                <column name="NUMFAC" precision="10" scale="0" />
+            </key-property>
+            <key-property name="lineafac" type="long">
+                <column name="LINEAFAC" precision="10" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="articulos" class="Modelos.Articulos" fetch="select">
+            <column name="REFERENCIA" length="13" not-null="true" />
+        </many-to-one>
+        <many-to-one name="facturasCab" class="Modelos.FacturasCab" update="false" insert="false" fetch="select">
+            <column name="NUMFAC" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="cantidad" type="big_decimal">
+            <column name="CANTIDAD" precision="12" scale="3" not-null="true" />
+        </property>
+        <property name="precio" type="big_decimal">
+            <column name="PRECIO" precision="12" scale="3" not-null="true" />
+        </property>
+        <property name="dtolinea" type="big_decimal">
+            <column name="DTOLINEA" precision="5" not-null="true" />
+        </property>
+        <property name="ivalinea" type="big_decimal">
+            <column name="IVALINEA" precision="5" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
+

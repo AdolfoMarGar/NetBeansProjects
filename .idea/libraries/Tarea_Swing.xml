@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Tarea_Swing">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Tarea_Swing/Tarea Swing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Tarea_Swing/mysql-connector-java-8.0.19.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

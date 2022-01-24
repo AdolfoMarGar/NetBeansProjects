@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-dic-2021 2:23:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelos.Articulos" table="ARTICULOS" schema="AD_TEMA_03_FACTURAS" optimistic-lock="version">
+        <id name="referencia" type="string">
+            <column name="REFERENCIA" length="13" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" not-null="true" unique="true" />
+        </property>
+        <property name="precio" type="big_decimal">
+            <column name="PRECIO" precision="12" scale="3" not-null="true" />
+        </property>
+        <property name="porciva" type="big_decimal">
+            <column name="PORCIVA" precision="5" />
+        </property>
+        <property name="stock" type="big_decimal">
+            <column name="STOCK" precision="12" scale="3" not-null="true" />
+        </property>
+        <set name="facturasLins" table="FACTURAS_LIN" inverse="false" lazy="false" fetch="select" >
+            <key>
+                <column name="REFERENCIA" length="13" not-null="false" />
+            </key>
+            <one-to-many class="Modelos.FacturasLin" />
+        </set>
+    </class>
+</hibernate-mapping>

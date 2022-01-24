@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Tarea_JavaFx">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Tarea_JavaFx/mysql-connector-java-8.0.19.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Tarea_JavaFx/JavaFxApplication.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

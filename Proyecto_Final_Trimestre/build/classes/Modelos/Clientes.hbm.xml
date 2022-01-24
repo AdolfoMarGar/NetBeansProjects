@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-dic-2021 2:23:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelos.Clientes" table="CLIENTES" schema="AD_TEMA_03_FACTURAS" optimistic-lock="version">
+        <id name="dnicif" type="string">
+            <column name="DNICIF" length="13" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombrecli" type="string">
+            <column name="NOMBRECLI" length="100" not-null="true" />
+        </property>
+        <set name="estadisticasClienteses" table="ESTADISTICAS_CLIENTES" lazy="false" fetch="select" cascade="all" inverse="false">
+            <key>
+                <column name="DNICIF" length="13" not-null="true" />
+            </key>
+            <one-to-many class="Modelos.EstadisticasClientes" />
+        </set>
+        <set name="facturasCabs" table="FACTURAS_CAB" lazy="false" fetch="select" cascade="all" inverse="false">
+            <key>
+                <column name="DNICIF" length="13" not-null="true" />
+            </key>
+            <one-to-many class="Modelos.FacturasCab" />
+        </set>
+    </class>
+</hibernate-mapping>

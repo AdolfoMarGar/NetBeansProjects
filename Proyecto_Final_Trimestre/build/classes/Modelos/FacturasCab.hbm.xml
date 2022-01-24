@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-dic-2021 2:23:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelos.FacturasCab" table="FACTURAS_CAB" schema="AD_TEMA_03_FACTURAS" optimistic-lock="version">
+        <id name="numfac" type="long">
+            <column name="NUMFAC" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="clientes" class="Modelos.Clientes" fetch="select">
+            <column name="DNICIF" length="13" not-null="true" />
+        </many-to-one>
+        <property name="fechafac" type="date">
+            <column name="FECHAFAC" length="7" />
+        </property>
+        <one-to-one name="facturasTot" class="Modelos.FacturasTot"></one-to-one>
+        <set name="facturasLins" table="FACTURAS_LIN" inverse="false" lazy="false" fetch="select" cascade="all">
+            <key>
+                <column name="NUMFAC" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="Modelos.FacturasLin" />
+        </set>
+    </class>
+</hibernate-mapping>
